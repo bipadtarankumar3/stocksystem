@@ -16,13 +16,13 @@
                     <div class="card-body">
                         
                         <div class="row">
-                            <div class="col-md-4">
+                            <div class="col-md-6">
                                 <div class="form-floating form-floating-outline mb-4">
                                     <input type="text" value="{{ isset($room) ? $room->name : '' }}" name="name" class="form-control" id="basic-default-name">
                                     <label for="basic-default-name">Product Name</label>
                                 </div>
                             </div>
-                            <div class="col-md-4">
+                            <div class="col-md-6">
                                 <div class="form-floating form-floating-outline mb-4">
                                     <select name="room_type" id="room_type" class="form-control">
                                         <option value="">-- Select Category --</option>
@@ -32,33 +32,51 @@
                                     <label for="basic-default-name">Category</label>
                                 </div>
                             </div>
-                            <div class="col-md-4">
+                          
+                        </div>
+                        
+
+                        <div class="row">
+                            <div class="col-md-6">
                                 <div class="form-floating form-floating-outline mb-4">
                                     <input type="text" value="{{ isset($room) ? $room->name : '' }}" name="name" class="form-control" id="basic-default-name">
-                                    <label for="basic-default-name">Product Price</label>
+                                    <label for="basic-default-name">Counter 1 Price</label>
+                                </div>
+                            </div>
+                            <div class="col-md-6">
+                                <div class="form-floating form-floating-outline mb-4">
+                                    <input type="text" value="{{ isset($room) ? $room->name : '' }}" name="name" class="form-control" id="basic-default-name">
+                                    <label for="basic-default-name">Counter 1 Cartoon Price</label>
                                 </div>
                             </div>
                         </div>
-                        
                         <div class="row">
-                            
-                            <!--<div class="col-md-6">-->
-                            <!--    <div class="form-floating form-floating-outline mb-4">-->
-                            <!--        <select name="room_type" id="room_type" class="form-control">-->
-                            <!--            <option value="">-- Select Cartoon Type --</option>-->
-                            <!--            <option value="">Type 1</option>-->
-                            <!--            <option value="">Type 2</option>-->
-                                       
-                            <!--        </select>-->
-                            <!--        <label for="basic-default-name">Cartoon Type</label>-->
-                            <!--    </div>-->
-                            <!--</div>-->
-                            <!--<div class="col-md-6">-->
-                            <!--    <div class="form-floating form-floating-outline mb-4">-->
-                            <!--        <input type="text" value="{{ isset($room) ? $room->name : '' }}" name="name" class="form-control" id="basic-default-name">-->
-                            <!--        <label for="basic-default-name">Requirment Generate (Minimum quantity)</label>-->
-                            <!--    </div>-->
-                            <!--</div>-->
+                            <div class="col-md-6">
+                                <div class="form-floating form-floating-outline mb-4">
+                                    <input type="text" value="{{ isset($room) ? $room->name : '' }}" name="name" class="form-control" id="basic-default-name">
+                                    <label for="basic-default-name">Counter 2 Price</label>
+                                </div>
+                            </div>
+                            <div class="col-md-6">
+                                <div class="form-floating form-floating-outline mb-4">
+                                    <input type="text" value="{{ isset($room) ? $room->name : '' }}" name="name" class="form-control" id="basic-default-name">
+                                    <label for="basic-default-name">Counter 2 Cartoon Price</label>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="col-md-6">
+                                <div class="form-floating form-floating-outline mb-4">
+                                    <input type="text" value="{{ isset($room) ? $room->name : '' }}" name="name" class="form-control" id="basic-default-name">
+                                    <label for="basic-default-name">Counter 3 Price</label>
+                                </div>
+                            </div>
+                            <div class="col-md-6">
+                                <div class="form-floating form-floating-outline mb-4">
+                                    <input type="text" value="{{ isset($room) ? $room->name : '' }}" name="name" class="form-control" id="basic-default-name">
+                                    <label for="basic-default-name">Counter 3 Cartoon Price</label>
+                                </div>
+                            </div>
                         </div>
                        
                       

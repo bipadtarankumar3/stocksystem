@@ -7,23 +7,23 @@
 
     </h6>
 
-    <form action="{{ isset($room) ? url('admin/room/save_room/' . $room->id) : url('admin/room/save_room') }}" method="POST" enctype="multipart/form-data" class="browser-default-validation">
+    <form action="{{ isset($user) ? url('admin/user/save_user/' . $user->id) : url('admin/user/save_user') }}" method="POST" enctype="multipart/form-data" class="browser-default-validation">
         @csrf
         <div class="row">
             <div class="col-md-12">
                 <div class="card">
-                    <h5 class="card-header">{{ isset($room) ? 'Edit User' : 'Add User' }}</h5>
+                    <h5 class="card-header">{{ isset($user) ? 'Edit User' : 'Add User' }}</h5>
                     <div class="card-body">
                         <div class="row">
                             <div class="col-md-6">
                                 <div class="form-floating form-floating-outline mb-4">
-                                    <input type="text" value="{{ isset($room) ? $room->name : '' }}" name="name" class="form-control" id="basic-default-name">
+                                    <input type="text" value="{{ isset($user) ? $user->name : '' }}" name="name" class="form-control" id="basic-default-name">
                                     <label for="basic-default-name">Name</label>
                                 </div>
                             </div>
                             <div class="col-md-6">
                                 <div class="form-floating form-floating-outline mb-4">
-                                    <input type="text" value="{{ isset($room) ? $room->name : '' }}" name="name" class="form-control" id="basic-default-name">
+                                    <input type="text" value="{{ isset($user) ? $user->email : '' }}" name="email" class="form-control" id="basic-default-name">
                                     <label for="basic-default-name">Email</label>
                                 </div>
                             </div>
@@ -31,13 +31,13 @@
                         <div class="row">
                             <div class="col-md-6">
                                 <div class="form-floating form-floating-outline mb-4">
-                                    <input type="text" value="{{ isset($room) ? $room->name : '' }}" name="name" class="form-control" id="basic-default-name">
+                                    <input type="text" value="{{ isset($user) ? $user->phone : '' }}" name="phone" class="form-control" id="basic-default-name">
                                     <label for="basic-default-name">Phone Number</label>
                                 </div>
                             </div>
                             <div class="col-md-6">
                                 <div class="form-floating form-floating-outline mb-4">
-                                    <input type="text" value="{{ isset($room) ? $room->name : '' }}" name="name" class="form-control" id="basic-default-name">
+                                    <input type="text" value="{{ isset($user) ? $user->address : '' }}" name="address" class="form-control" id="basic-default-name">
                                     <label for="basic-default-name">Address</label>
                                 </div>
                             </div>
@@ -54,7 +54,7 @@
 
                         <div class="row">
                             <div class="col-md-12">
-                                <button class="btn btn-primary mt-2" type="button">{{ isset($room) ? 'Update' : 'Submit' }}</button>
+                                <button class="btn btn-primary mt-2" type="submit">{{ isset($room) ? 'Update' : 'Submit' }}</button>
                                 <a href="{{URL::to('admin/user/list')}}">
                                     <button class="btn btn-success mt-2" type="button">Back</button>
 

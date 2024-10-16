@@ -23,6 +23,7 @@
             <th>Name</th>
             <th>Email</th>
             <th>Phone</th>
+            <th>Address</th>
             <th>Action</th>
            
           </tr>
@@ -35,8 +36,9 @@
             <td>{{$user->name}}</td>
             <td>{{$user->email}}</td>
             <td>{{$user->phone}}</td>
+            <td>{{$user->address}}</td>
             <td>
-                <a href="#"><i class="fa-solid fa-pen"></i></a>
+                <a href="{{ url('admin/user/edit/' . $user->id) }}"><i class="fa-solid fa-pen"></i></a>
                 <a href="#"  onclick="deleteConfirmation(event)"><i class="fa-solid fa-trash"></i></a>
                
             </td>

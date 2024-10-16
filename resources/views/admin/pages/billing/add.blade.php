@@ -33,7 +33,7 @@
                         </div>
                         <div class="col-md-4">
                             <div class="form-floating form-floating-outline mb-4">
-                                <input type="date" value="{{ isset($room) ? $room->name : '' }}" name="name" class="form-control" id="basic-default-name">
+                                <input type="text" value="{{ isset($room) ? $room->name : '' }}" name="name" class="form-control" id="basic-default-name">
                                 <label for="basic-default-name">Courier Name</label>
                             </div>
                         </div>
@@ -41,7 +41,7 @@
 
                     <div class="row my-4">
                         <div class="col-md-12">
-                            <h4>Room Images</h4>
+                            <h4>Add Products</h4>
                             <table class="table">
                                 <thead>
                                     <tr>
@@ -55,17 +55,317 @@
                                 <tbody class="table_body_row">
                                     <tr>
                                         <td>
-                                            <select name="room_type" id="room_type" class="form-control">
+                                            <select name="product[]" id="product[]" class="form-control">
                                                 <option value="">-- Select Product --</option>
                                                 <option value="">C/M '10' 1200W (PILY)</option>
                                                 <option value="">SWITCH '8'</option>
                                             </select>
                                         </td>
-                                        <td><input type="text" name="document[]" class="form-control"></td>
-                                        <td><input type="text" name="document[]" class="form-control"></td>
-                                        <td><input type="text" name="document[]" class="form-control"></td>
+                                        <td><input type="text" name="quantity[]" class="form-control"></td>
+                                        <td><input type="text" name="price[]" class="form-control"></td>
+                                        <td><input type="text" name="total[]" class="form-control"></td>
                                         <td>
                                             <button type="button" onclick="add_more_row()" id="#add-more-row" class="btn btn-info waves-effect waves-light"><i class="fa-solid fa-plus"></i></button>
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <td>
+                                            <select name="product[]" id="product[]" class="form-control">
+                                                <option value="">-- Select Product --</option>
+                                                <option value="">C/M '10' 1200W (PILY)</option>
+                                                <option value="">SWITCH '8'</option>
+                                            </select>
+                                        </td>
+                                        <td><input type="text" name="quantity[]" class="form-control"></td>
+                                        <td><input type="text" name="price[]" class="form-control"></td>
+                                        <td><input type="text" name="total[]" class="form-control"></td>
+                                        <td>
+                                                <button type="button" class="btn btn-danger waves-effect waves-light remove-row"><i class="fa-solid fa-trash"></i></button>
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <td>
+                                            <select name="product[]" id="product[]" class="form-control">
+                                                <option value="">-- Select Product --</option>
+                                                <option value="">C/M '10' 1200W (PILY)</option>
+                                                <option value="">SWITCH '8'</option>
+                                            </select>
+                                        </td>
+                                        <td><input type="text" name="quantity[]" class="form-control"></td>
+                                        <td><input type="text" name="price[]" class="form-control"></td>
+                                        <td><input type="text" name="total[]" class="form-control"></td>
+                                        <td>
+                                                <button type="button" class="btn btn-danger waves-effect waves-light remove-row"><i class="fa-solid fa-trash"></i></button>
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <td>
+                                            <select name="product[]" id="product[]" class="form-control">
+                                                <option value="">-- Select Product --</option>
+                                                <option value="">C/M '10' 1200W (PILY)</option>
+                                                <option value="">SWITCH '8'</option>
+                                            </select>
+                                        </td>
+                                        <td><input type="text" name="quantity[]" class="form-control"></td>
+                                        <td><input type="text" name="price[]" class="form-control"></td>
+                                        <td><input type="text" name="total[]" class="form-control"></td>
+                                        <td>
+                                                <button type="button" class="btn btn-danger waves-effect waves-light remove-row"><i class="fa-solid fa-trash"></i></button>
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <td>
+                                            <select name="product[]" id="product[]" class="form-control">
+                                                <option value="">-- Select Product --</option>
+                                                <option value="">C/M '10' 1200W (PILY)</option>
+                                                <option value="">SWITCH '8'</option>
+                                            </select>
+                                        </td>
+                                        <td><input type="text" name="quantity[]" class="form-control"></td>
+                                        <td><input type="text" name="price[]" class="form-control"></td>
+                                        <td><input type="text" name="total[]" class="form-control"></td>
+                                        <td>
+                                                <button type="button" class="btn btn-danger waves-effect waves-light remove-row"><i class="fa-solid fa-trash"></i></button>
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <td>
+                                            <select name="product[]" id="product[]" class="form-control">
+                                                <option value="">-- Select Product --</option>
+                                                <option value="">C/M '10' 1200W (PILY)</option>
+                                                <option value="">SWITCH '8'</option>
+                                            </select>
+                                        </td>
+                                        <td><input type="text" name="quantity[]" class="form-control"></td>
+                                        <td><input type="text" name="price[]" class="form-control"></td>
+                                        <td><input type="text" name="total[]" class="form-control"></td>
+                                        <td>
+                                                <button type="button" class="btn btn-danger waves-effect waves-light remove-row"><i class="fa-solid fa-trash"></i></button>
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <td>
+                                            <select name="product[]" id="product[]" class="form-control">
+                                                <option value="">-- Select Product --</option>
+                                                <option value="">C/M '10' 1200W (PILY)</option>
+                                                <option value="">SWITCH '8'</option>
+                                            </select>
+                                        </td>
+                                        <td><input type="text" name="quantity[]" class="form-control"></td>
+                                        <td><input type="text" name="price[]" class="form-control"></td>
+                                        <td><input type="text" name="total[]" class="form-control"></td>
+                                        <td>
+                                                <button type="button" class="btn btn-danger waves-effect waves-light remove-row"><i class="fa-solid fa-trash"></i></button>
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <td>
+                                            <select name="product[]" id="product[]" class="form-control">
+                                                <option value="">-- Select Product --</option>
+                                                <option value="">C/M '10' 1200W (PILY)</option>
+                                                <option value="">SWITCH '8'</option>
+                                            </select>
+                                        </td>
+                                        <td><input type="text" name="quantity[]" class="form-control"></td>
+                                        <td><input type="text" name="price[]" class="form-control"></td>
+                                        <td><input type="text" name="total[]" class="form-control"></td>
+                                        <td>
+                                                <button type="button" class="btn btn-danger waves-effect waves-light remove-row"><i class="fa-solid fa-trash"></i></button>
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <td>
+                                            <select name="product[]" id="product[]" class="form-control">
+                                                <option value="">-- Select Product --</option>
+                                                <option value="">C/M '10' 1200W (PILY)</option>
+                                                <option value="">SWITCH '8'</option>
+                                            </select>
+                                        </td>
+                                        <td><input type="text" name="quantity[]" class="form-control"></td>
+                                        <td><input type="text" name="price[]" class="form-control"></td>
+                                        <td><input type="text" name="total[]" class="form-control"></td>
+                                        <td>
+                                                <button type="button" class="btn btn-danger waves-effect waves-light remove-row"><i class="fa-solid fa-trash"></i></button>
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <td>
+                                            <select name="product[]" id="product[]" class="form-control">
+                                                <option value="">-- Select Product --</option>
+                                                <option value="">C/M '10' 1200W (PILY)</option>
+                                                <option value="">SWITCH '8'</option>
+                                            </select>
+                                        </td>
+                                        <td><input type="text" name="quantity[]" class="form-control"></td>
+                                        <td><input type="text" name="price[]" class="form-control"></td>
+                                        <td><input type="text" name="total[]" class="form-control"></td>
+                                        <td>
+                                                <button type="button" class="btn btn-danger waves-effect waves-light remove-row"><i class="fa-solid fa-trash"></i></button>
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <td>
+                                            <select name="product[]" id="product[]" class="form-control">
+                                                <option value="">-- Select Product --</option>
+                                                <option value="">C/M '10' 1200W (PILY)</option>
+                                                <option value="">SWITCH '8'</option>
+                                            </select>
+                                        </td>
+                                        <td><input type="text" name="quantity[]" class="form-control"></td>
+                                        <td><input type="text" name="price[]" class="form-control"></td>
+                                        <td><input type="text" name="total[]" class="form-control"></td>
+                                        <td>
+                                                <button type="button" class="btn btn-danger waves-effect waves-light remove-row"><i class="fa-solid fa-trash"></i></button>
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <td>
+                                            <select name="product[]" id="product[]" class="form-control">
+                                                <option value="">-- Select Product --</option>
+                                                <option value="">C/M '10' 1200W (PILY)</option>
+                                                <option value="">SWITCH '8'</option>
+                                            </select>
+                                        </td>
+                                        <td><input type="text" name="quantity[]" class="form-control"></td>
+                                        <td><input type="text" name="price[]" class="form-control"></td>
+                                        <td><input type="text" name="total[]" class="form-control"></td>
+                                        <td>
+                                                <button type="button" class="btn btn-danger waves-effect waves-light remove-row"><i class="fa-solid fa-trash"></i></button>
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <td>
+                                            <select name="product[]" id="product[]" class="form-control">
+                                                <option value="">-- Select Product --</option>
+                                                <option value="">C/M '10' 1200W (PILY)</option>
+                                                <option value="">SWITCH '8'</option>
+                                            </select>
+                                        </td>
+                                        <td><input type="text" name="quantity[]" class="form-control"></td>
+                                        <td><input type="text" name="price[]" class="form-control"></td>
+                                        <td><input type="text" name="total[]" class="form-control"></td>
+                                        <td>
+                                                <button type="button" class="btn btn-danger waves-effect waves-light remove-row"><i class="fa-solid fa-trash"></i></button>
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <td>
+                                            <select name="product[]" id="product[]" class="form-control">
+                                                <option value="">-- Select Product --</option>
+                                                <option value="">C/M '10' 1200W (PILY)</option>
+                                                <option value="">SWITCH '8'</option>
+                                            </select>
+                                        </td>
+                                        <td><input type="text" name="quantity[]" class="form-control"></td>
+                                        <td><input type="text" name="price[]" class="form-control"></td>
+                                        <td><input type="text" name="total[]" class="form-control"></td>
+                                        <td>
+                                                <button type="button" class="btn btn-danger waves-effect waves-light remove-row"><i class="fa-solid fa-trash"></i></button>
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <td>
+                                            <select name="product[]" id="product[]" class="form-control">
+                                                <option value="">-- Select Product --</option>
+                                                <option value="">C/M '10' 1200W (PILY)</option>
+                                                <option value="">SWITCH '8'</option>
+                                            </select>
+                                        </td>
+                                        <td><input type="text" name="quantity[]" class="form-control"></td>
+                                        <td><input type="text" name="price[]" class="form-control"></td>
+                                        <td><input type="text" name="total[]" class="form-control"></td>
+                                        <td>
+                                                <button type="button" class="btn btn-danger waves-effect waves-light remove-row"><i class="fa-solid fa-trash"></i></button>
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <td>
+                                            <select name="product[]" id="product[]" class="form-control">
+                                                <option value="">-- Select Product --</option>
+                                                <option value="">C/M '10' 1200W (PILY)</option>
+                                                <option value="">SWITCH '8'</option>
+                                            </select>
+                                        </td>
+                                        <td><input type="text" name="quantity[]" class="form-control"></td>
+                                        <td><input type="text" name="price[]" class="form-control"></td>
+                                        <td><input type="text" name="total[]" class="form-control"></td>
+                                        <td>
+                                                <button type="button" class="btn btn-danger waves-effect waves-light remove-row"><i class="fa-solid fa-trash"></i></button>
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <td>
+                                            <select name="product[]" id="product[]" class="form-control">
+                                                <option value="">-- Select Product --</option>
+                                                <option value="">C/M '10' 1200W (PILY)</option>
+                                                <option value="">SWITCH '8'</option>
+                                            </select>
+                                        </td>
+                                        <td><input type="text" name="quantity[]" class="form-control"></td>
+                                        <td><input type="text" name="price[]" class="form-control"></td>
+                                        <td><input type="text" name="total[]" class="form-control"></td>
+                                        <td>
+                                                <button type="button" class="btn btn-danger waves-effect waves-light remove-row"><i class="fa-solid fa-trash"></i></button>
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <td>
+                                            <select name="product[]" id="product[]" class="form-control">
+                                                <option value="">-- Select Product --</option>
+                                                <option value="">C/M '10' 1200W (PILY)</option>
+                                                <option value="">SWITCH '8'</option>
+                                            </select>
+                                        </td>
+                                        <td><input type="text" name="quantity[]" class="form-control"></td>
+                                        <td><input type="text" name="price[]" class="form-control"></td>
+                                        <td><input type="text" name="total[]" class="form-control"></td>
+                                        <td>
+                                                <button type="button" class="btn btn-danger waves-effect waves-light remove-row"><i class="fa-solid fa-trash"></i></button>
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <td>
+                                            <select name="product[]" id="product[]" class="form-control">
+                                                <option value="">-- Select Product --</option>
+                                                <option value="">C/M '10' 1200W (PILY)</option>
+                                                <option value="">SWITCH '8'</option>
+                                            </select>
+                                        </td>
+                                        <td><input type="text" name="quantity[]" class="form-control"></td>
+                                        <td><input type="text" name="price[]" class="form-control"></td>
+                                        <td><input type="text" name="total[]" class="form-control"></td>
+                                        <td>
+                                                <button type="button" class="btn btn-danger waves-effect waves-light remove-row"><i class="fa-solid fa-trash"></i></button>
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <td>
+                                            <select name="product[]" id="product[]" class="form-control">
+                                                <option value="">-- Select Product --</option>
+                                                <option value="">C/M '10' 1200W (PILY)</option>
+                                                <option value="">SWITCH '8'</option>
+                                            </select>
+                                        </td>
+                                        <td><input type="text" name="quantity[]" class="form-control"></td>
+                                        <td><input type="text" name="price[]" class="form-control"></td>
+                                        <td><input type="text" name="total[]" class="form-control"></td>
+                                        <td>
+                                                <button type="button" class="btn btn-danger waves-effect waves-light remove-row"><i class="fa-solid fa-trash"></i></button>
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <td>
+                                            <select name="product[]" id="product[]" class="form-control">
+                                                <option value="">-- Select Product --</option>
+                                                <option value="">C/M '10' 1200W (PILY)</option>
+                                                <option value="">SWITCH '8'</option>
+                                            </select>
+                                        </td>
+                                        <td><input type="text" name="quantity[]" class="form-control"></td>
+                                        <td><input type="text" name="price[]" class="form-control"></td>
+                                        <td><input type="text" name="total[]" class="form-control"></td>
+                                        <td>
+                                            <button type="button" class="btn btn-danger waves-effect waves-light remove-row"><i class="fa-solid fa-trash"></i></button>
                                         </td>
                                     </tr>
                                 </tbody>
@@ -97,7 +397,7 @@
   <div class="modal-dialog modal-lg">
     <div class="modal-content">
       <div class="modal-header">
-        <h5 class="modal-title" id="staticBackdropLabel">Print The Billing</h5>
+        <h5 class="modal-title" id="staticBackdropLabel">Preview The Bill</h5>
         <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
       </div>
       <div class="modal-body">
@@ -189,20 +489,20 @@ function printDiv(divName) {
     function add_more_row() {
         var newRow = `
         <tr>
-            <td>
-                <select name="room_type" id="room_type" class="form-control">
-                    <option value="">-- Select Product --</option>
-                    <option value="">C/M '10' 1200W (PILY)</option>
-                    <option value="">SWITCH '8'</option>
-                </select>
-            </td>
-            <td><input type="text" name="document[]" class="form-control"></td>
-            <td><input type="text" name="document[]" class="form-control"></td>
-            <td><input type="text" name="document[]" class="form-control"></td>
-            <td>
-                <button type="button" class="btn btn-danger waves-effect waves-light remove-row"><i class="fa-solid fa-trash"></i></button>
-            </td>
-        </tr>`;
+                                        <td>
+                                            <select name="product[]" id="product[]" class="form-control">
+                                                <option value="">-- Select Product --</option>
+                                                <option value="">C/M '10' 1200W (PILY)</option>
+                                                <option value="">SWITCH '8'</option>
+                                            </select>
+                                        </td>
+                                        <td><input type="text" name="quantity[]" class="form-control"></td>
+                                        <td><input type="text" name="price[]" class="form-control"></td>
+                                        <td><input type="text" name="total[]" class="form-control"></td>
+                                        <td>
+                                                <button type="button" class="btn btn-danger waves-effect waves-light remove-row"><i class="fa-solid fa-trash"></i></button>
+                                        </td>
+                                    </tr>`;
         $(".table_body_row").append(newRow);
     }
 

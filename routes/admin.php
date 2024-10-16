@@ -25,6 +25,8 @@ Route::group(['prefix' => 'admin', 'as' => 'admin.', 'middleware' => ['App\Http\
     Route::group(['prefix' => 'user', 'as' => 'user.'], function () {
         Route::get('list', [UserManagementController::class, 'userList']);
         Route::get('add', [UserManagementController::class, 'userAdd']);
+        Route::get('edit/{id}', [UserManagementController::class, 'edit'])->name('admin.user.edit');
+        Route::post('save_user/{id?}', [UserManagementController::class, 'save_user'])->name('admin.user.save');
     });
 
 
