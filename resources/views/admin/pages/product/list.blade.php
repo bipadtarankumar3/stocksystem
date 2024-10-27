@@ -27,6 +27,7 @@
                                         <th>Category Name</th>
                                         <th>Name</th>
                                         <th>Price</th>
+                                        <th>OEM</th>
                                     </tr>
                                 </thead>
                                 <tbody>
@@ -40,6 +41,7 @@
                                         <td>1.5 S/DRIVER (GOOD)
                                         </td>
                                         <td>ABC</td>
+                                        <td>OEM Value</td>
                                     </tr>
                                     <tr>
                                         <td>2</td>
@@ -51,6 +53,7 @@
                                         <td>1.5 S/DRIVER (GOOD)
                                         </td>
                                         <td>ABC</td>
+                                              <td>OEM Value</td>
                                     </tr>
                                     <tr>
                                         <td>3</td>
@@ -63,6 +66,7 @@
                                         <td>1.5 S/DRIVER (GOOD)
                                         </td>
                                         <td>ABC</td>
+                                              <td>OEM Value</td>
                                     </tr>
                                 </tbody>
                             </table>

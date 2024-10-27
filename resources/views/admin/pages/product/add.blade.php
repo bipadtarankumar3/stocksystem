@@ -78,6 +78,15 @@
                                 </div>
                             </div>
                         </div>
+                        <div class="row">
+                            <div class="col-md-6">
+                                <div class="form-floating form-floating-outline mb-4">
+                                    <input type="text" value="{{ isset($room) ? $room->name : '' }}" name="name" class="form-control" id="basic-default-name">
+                                    <label for="basic-default-name">OEM</label>
+                                </div>
+                            </div>
+                            
+                        </div>
                        
                       
 

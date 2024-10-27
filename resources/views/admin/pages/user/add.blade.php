@@ -23,22 +23,23 @@
                             </div>
                             <div class="col-md-6">
                                 <div class="form-floating form-floating-outline mb-4">
-                                    <input type="text" value="{{ isset($user) ? $user->email : '' }}" name="email" class="form-control" id="basic-default-name">
-                                    <label for="basic-default-name">Email</label>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="row">
-                            <div class="col-md-6">
-                                <div class="form-floating form-floating-outline mb-4">
                                     <input type="text" value="{{ isset($user) ? $user->phone : '' }}" name="phone" class="form-control" id="basic-default-name">
                                     <label for="basic-default-name">Phone Number</label>
                                 </div>
                             </div>
+                        </div>
+                        <div class="row">
+                            
                             <div class="col-md-6">
                                 <div class="form-floating form-floating-outline mb-4">
-                                    <input type="text" value="{{ isset($user) ? $user->address : '' }}" name="address" class="form-control" id="basic-default-name">
-                                    <label for="basic-default-name">Address</label>
+                                    <select name="room_type" id="room_type" class="form-control">
+                                        <option value="">-- Select SD Type --</option>
+                                        <option value="">1</option>
+                                        <option value="">2</option>
+                                        <option value="">3</option>
+                                       
+                                    </select>
+                                    <label for="basic-default-name">Category</label>
                                 </div>
                             </div>
                         </div>

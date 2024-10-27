@@ -21,9 +21,8 @@
           <tr class="text-nowrap">
             <th>#</th>
             <th>Name</th>
-            <th>Email</th>
             <th>Phone</th>
-            <th>Address</th>
+            <th>SD Type</th>
             <th>Action</th>
            
           </tr>
@@ -34,7 +33,6 @@
           <tr>
             <th scope="row">{{$key+1}}</th>
             <td>{{$user->name}}</td>
-            <td>{{$user->email}}</td>
             <td>{{$user->phone}}</td>
             <td>{{$user->address}}</td>
             <td>

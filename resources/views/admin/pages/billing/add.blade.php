@@ -27,16 +27,49 @@
                         </div>
                         <div class="col-md-4">
                             <div class="form-floating form-floating-outline mb-4">
-                                <input type="date" value="{{ isset($room) ? $room->name : '' }}" name="name" class="form-control" id="basic-default-name">
-                                <label for="basic-default-name">Date</label>
+                                <input type="text" value="{{ isset($room) ? $room->name : '' }}" name="name" class="form-control" id="basic-default-name">
+                                <label for="basic-default-name">Customer Type</label>
                             </div>
                         </div>
                         <div class="col-md-4">
                             <div class="form-floating form-floating-outline mb-4">
+                                <select name="room_type" id="room_type" class="form-control">
+                                    <option value="">-- Select Location --</option>
+                                    <option value="">Location 1</option>
+                                    <option value="">Location 2</option>
+                                    <option value="">Location 3</option>
+                                </select>
+                                <label for="basic-default-name">Location</label>
+                            </div>
+                        </div>  
+                        <div class="col-md-4">
+                            <div class="form-floating form-floating-outline mb-4">
                                 <input type="text" value="{{ isset($room) ? $room->name : '' }}" name="name" class="form-control" id="basic-default-name">
-                                <label for="basic-default-name">Courier Name</label>
+                              
+                                <label for="basic-default-name">Currier Name</label>
+                            </div>
+                        </div>  
+                        <div class="col-md-4">
+                            <div class="form-floating form-floating-outline mb-4">
+                                <input type="text" value="{{ isset($room) ? $room->name : '' }}" name="name" class="form-control" id="basic-default-name">
+                              
+                                <label for="basic-default-name">Muthiya Cost</label>
+                            </div>
+                        </div>  
+                        <div class="col-md-4">
+                            <div class="form-floating form-floating-outline mb-4">
+                                <input type="text" value="{{ isset($room) ? $room->name : '' }}" name="name" class="form-control" id="basic-default-name">
+                              
+                                <label for="basic-default-name">Others </label>
+                            </div>
+                        </div>  
+                        <div class="col-md-4">
+                            <div class="form-floating form-floating-outline mb-4">
+                                <input type="date" value="{{ isset($room) ? $room->name : '' }}" name="name" class="form-control" id="basic-default-name">
+                                <label for="basic-default-name">Date</label>
                             </div>
                         </div>
+                       
                     </div>
 
                     <div class="row my-4">
@@ -46,7 +79,7 @@
                                 <thead>
                                     <tr>
                                         <th>Product</th>
-                                        <th>Quantity</th>
+                                        <th>Cartoon Quantity</th>
                                         <th>Price</th>
                                         <th>Total</th>
                                         <th>Action</th>
