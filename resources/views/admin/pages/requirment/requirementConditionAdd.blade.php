@@ -12,11 +12,11 @@
         <div class="row">
             <div class="col-md-12">
                 <div class="card">
-                    <h5 class="card-header">{{ isset($room) ? 'Edit Stock' : 'Add Stock' }}</h5>
+                    <h5 class="card-header">{{ isset($room) ? 'Edit Stock' : 'Requerment condition' }}</h5>
                     <div class="card-body">
                         
                         <div class="row">
-                            <div class="col-md-6">
+                            <div class="col-md-4">
                                 <div class="form-floating form-floating-outline mb-4">
                                     <select name="room_type" id="room_type" class="form-control">
                                         <option value="">-- Select Product --</option>
@@ -27,12 +27,46 @@
                                     <label for="basic-default-name">Product</label>
                                 </div>
                             </div>
-                            <div class="col-md-6">
+                            <div class="col-md-4">
                                 <div class="form-floating form-floating-outline mb-4">
-                                <input type="text" value="{{ isset($room) ? $room->name : '' }}" name="name" class="form-control" id="basic-default-name">
-                                <label for="basic-default-name">Minimum requirment</label>
+                                    <input type="text" value="{{ isset($room) ? $room->name : '' }}" name="name" class="form-control" id="basic-default-name">
+                                    <label for="basic-default-name">Minimum requirment</label>
+                                </div>
                             </div>
-                            </div>
+                            
+                            <div class="col-md-4">
+                                <div class="form-floating form-floating-outline mb-4">
+                                    <select name="room_type" id="room_type" class="form-control">
+                                        <option value="">-- Select Type --</option>
+                                        <option value="">ML </option>
+                                        <option value="">NG </option>
+                                        <option value="">SD </option>
+                                    </select>
+                                    <label for="basic-default-name">First Checking</label>
+                                </div>
+                            </div>  
+                            <div class="col-md-4">
+                                <div class="form-floating form-floating-outline mb-4">
+                                    <select name="room_type" id="room_type" class="form-control">
+                                        <option value="">-- Select Type --</option>
+                                        <option value="">ML </option>
+                                        <option value="">NG </option>
+                                        <option value="">SD </option>
+                                    </select>
+                                    <label for="basic-default-name">Second Checking</label>
+                                </div>
+                            </div>  
+                            <div class="col-md-4">
+                                <div class="form-floating form-floating-outline mb-4">
+                                    <select name="room_type" id="room_type" class="form-control">
+                                        <option value="">-- Select Type --</option>
+                                        <option value="">ML </option>
+                                        <option value="">NG </option>
+                                        <option value="">SD </option>
+                                    </select>
+                                    <label for="basic-default-name">Third Checking</label>
+                                </div>
+                            </div>  
                         </div>
                       
                       

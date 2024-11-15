@@ -20,4 +20,24 @@ class CategoryController extends Controller
 
         return view('admin.pages.category.add',$data);
     }
+
+    public function uomList(){
+        $data['title']='uom Lists';
+    
+
+        return view('admin.pages.uom.list',$data);
+    }
+    public function sdList(){
+        $data['title']='sd Lists';
+    
+
+        return view('admin.pages.sd.list',$data);
+    }
+    public function warehouseList(){
+        $data['title']='warehouse Lists';
+    
+
+        return view('admin.pages.warehouse.list',$data);
+    }
+
 }

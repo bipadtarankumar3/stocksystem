@@ -40,27 +40,13 @@
                             <div class="col-md-6">
                                 <div class="form-floating form-floating-outline mb-4">
                                     <input type="text" value="{{ isset($room) ? $room->name : '' }}" name="name" class="form-control" id="basic-default-name">
-                                    <label for="basic-default-name">Counter 1 Price</label>
+                                    <label for="basic-default-name">1</label>
                                 </div>
                             </div>
                             <div class="col-md-6">
                                 <div class="form-floating form-floating-outline mb-4">
                                     <input type="text" value="{{ isset($room) ? $room->name : '' }}" name="name" class="form-control" id="basic-default-name">
-                                    <label for="basic-default-name">Counter 1 Cartoon Price</label>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="row">
-                            <div class="col-md-6">
-                                <div class="form-floating form-floating-outline mb-4">
-                                    <input type="text" value="{{ isset($room) ? $room->name : '' }}" name="name" class="form-control" id="basic-default-name">
-                                    <label for="basic-default-name">Counter 2 Price</label>
-                                </div>
-                            </div>
-                            <div class="col-md-6">
-                                <div class="form-floating form-floating-outline mb-4">
-                                    <input type="text" value="{{ isset($room) ? $room->name : '' }}" name="name" class="form-control" id="basic-default-name">
-                                    <label for="basic-default-name">Counter 2 Cartoon Price</label>
+                                    <label for="basic-default-name"> 1 cartoon </label>
                                 </div>
                             </div>
                         </div>
@@ -68,13 +54,13 @@
                             <div class="col-md-6">
                                 <div class="form-floating form-floating-outline mb-4">
                                     <input type="text" value="{{ isset($room) ? $room->name : '' }}" name="name" class="form-control" id="basic-default-name">
-                                    <label for="basic-default-name">Counter 3 Price</label>
+                                    <label for="basic-default-name">2</label>
                                 </div>
                             </div>
                             <div class="col-md-6">
                                 <div class="form-floating form-floating-outline mb-4">
                                     <input type="text" value="{{ isset($room) ? $room->name : '' }}" name="name" class="form-control" id="basic-default-name">
-                                    <label for="basic-default-name">Counter 3 Cartoon Price</label>
+                                    <label for="basic-default-name">2 cartoon </label>
                                 </div>
                             </div>
                         </div>
@@ -82,10 +68,73 @@
                             <div class="col-md-6">
                                 <div class="form-floating form-floating-outline mb-4">
                                     <input type="text" value="{{ isset($room) ? $room->name : '' }}" name="name" class="form-control" id="basic-default-name">
-                                    <label for="basic-default-name">OEM</label>
+                                    <label for="basic-default-name">3</label>
+                                </div>
+                            </div>
+                            <div class="col-md-6">
+                                <div class="form-floating form-floating-outline mb-4">
+                                    <input type="text" value="{{ isset($room) ? $room->name : '' }}" name="name" class="form-control" id="basic-default-name">
+                                    <label for="basic-default-name">3 cartoon </label>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="col-md-6">
+                                <div class="form-floating form-floating-outline mb-4">
+
+                                    <select name="room_type" id="room_type" class="form-control">
+                                        <option value="">-- Select UOM --</option>
+                                        <option value="pcs">PCS</option>
+                                        <option value="">PKT</option>
+                                        <option value="">KG</option>
+                                       
+                                    </select>
+
+                                    <label for="basic-default-name">UOM </label>
+                                </div>
+                            </div>
+                            <div class="col-md-6">
+                                <div class="form-floating form-floating-outline mb-4">
+                                    <input type="text" value="{{ isset($room) ? $room->name : '' }}" name="name" class="form-control" id="basic-default-name">
+                                    <label for="basic-default-name">Min sale Qty </label>
                                 </div>
                             </div>
                             
+                        </div>
+                        <div class="row">
+                            <div class="col-md-6">
+                                <div class="form-floating form-floating-outline mb-4">
+                                    <input type="text" value="{{ isset($room) ? $room->name : '' }}" name="name" class="form-control" id="basic-default-name">
+                                    <label for="basic-default-name">UOM Qty</label>
+                                </div>
+                            </div>
+                            <div class="col-md-6">
+                                <div class="form-floating form-floating-outline mb-4">
+
+                                    <select name="room_type" id="room_type" class="form-control">
+                                        <option value="Active">Active </option>
+                                        <option value="Inactive">Inactive</option>
+                                       
+                                    </select>
+
+                                    <label for="basic-default-name">Status </label>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="row">
+                            
+                            <div class="col-md-6">
+                                <div class="form-floating form-floating-outline mb-4">
+
+                                    <select name="room_type" id="room_type" class="form-control">
+                                        <option value="Active">YES </option>
+                                        <option value="Inactive">NO</option>
+                                       
+                                    </select>
+
+                                    <label for="basic-default-name">ML  </label>
+                                </div>
+                            </div>
                         </div>
                        
                       

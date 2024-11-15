@@ -30,7 +30,7 @@
                             <div class="col-md-6">
                                  <div class="form-floating form-floating-outline mb-4">
                                 <input type="text" value="{{ isset($room) ? $room->name : '' }}" name="name" class="form-control" id="basic-default-name">
-                                <label for="basic-default-name">Product Quantity</label>
+                                <label for="basic-default-name">Cartoon Quantity</label>
                             </div>
                             </div>
                         </div>

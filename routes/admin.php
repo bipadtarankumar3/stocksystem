@@ -35,6 +35,18 @@ Route::group(['prefix' => 'admin', 'as' => 'admin.', 'middleware' => ['App\Http\
         Route::get('add', [CategoryController::class, 'categoryAdd']);
     });
 
+    Route::group(['prefix' => 'sd', 'as' => 'sd.'], function () {
+        Route::get('list', [CategoryController::class, 'sdList']);
+    });
+
+    Route::group(['prefix' => 'warehouse', 'as' => 'warehouse.'], function () {
+        Route::get('list', [CategoryController::class, 'warehouseList']);
+    });
+
+    Route::group(['prefix' => 'uom', 'as' => 'uom.'], function () {
+        Route::get('list', [CategoryController::class, 'uomList']);
+    });
+
 
     Route::group(['prefix' => 'product', 'as' => 'product.'], function () {
         Route::get('list', [ProductController::class, 'productList']);
