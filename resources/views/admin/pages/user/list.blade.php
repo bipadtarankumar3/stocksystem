@@ -34,10 +34,11 @@
             <th scope="row">{{$key+1}}</th>
             <td>{{$user->name}}</td>
             <td>{{$user->phone}}</td>
-            <td>{{$user->address}}</td>
+            <td>{{ $user->sd->name ?? 'N/A' }}</td>
+
             <td>
                 <a href="{{ url('admin/user/edit/' . $user->id) }}"><i class="fa-solid fa-pen"></i></a>
-                <a href="#"  onclick="deleteConfirmation(event)"><i class="fa-solid fa-trash"></i></a>
+                <a href="{{URL::to('admin/user/delete/'.$user->id)}}"  onclick="deleteConfirmationGet(event)"><i class="fa-solid fa-trash"></i></a>
                
             </td>
             

@@ -32,11 +32,13 @@
                             
                             <div class="col-md-6">
                                 <div class="form-floating form-floating-outline mb-4">
-                                    <select name="room_type" id="room_type" class="form-control">
+                                    <select name="sd_id" id="sd_id" class="form-control">
                                         <option value="">-- Select SD Type --</option>
-                                        <option value="">1</option>
-                                        <option value="">2</option>
-                                        <option value="">3</option>
+                                        @foreach ($sds as $item)
+                                            <option value="{{ $item->id }}" {{ isset($user) && $user->sd_id == $item->id ? 'selected' : '' }}>
+                                                {{ $item->name }}
+                                            </option>
+                                        @endforeach
                                        
                                     </select>
                                     <label for="basic-default-name">Category</label>

@@ -7,41 +7,42 @@
 
     </h6>
 
-    <form action="{{ isset($room) ? url('admin/room/save_room/' . $room->id) : url('admin/room/save_room') }}" method="POST" enctype="multipart/form-data" class="browser-default-validation">
+    <form action="{{ isset($cartoon) ? url('admin/cartoon/cartoonSave/' . $cartoon->id) : url('admin/cartoon/cartoonSave') }}" method="POST" enctype="multipart/form-data" class="browser-default-validation">
         @csrf
         <div class="row">
             <div class="col-md-12">
                 <div class="card">
-                    <h5 class="card-header">{{ isset($room) ? 'Edit Cartoon' : 'Add Cartoon' }}</h5>
+                    <h5 class="card-header">{{ isset($cartoon) ? 'Edit Cartoon' : 'Add Cartoon' }}</h5>
                     <div class="card-body">
                         
                         <div class="row">
                             <div class="col-md-6">
                                 <div class="form-floating form-floating-outline mb-4">
-                                    <select name="room_type" id="room_type" class="form-control">
+                                    <select name="product_id" id="product_id" class="form-control">
                                         <option value="">-- Select Product --</option>
-                                        <option value="">C/M ''10'' 1200W (PILY)</option>
-                                        <option value="">SWITCH ''8''</option>
+                                        @foreach ($products as $item)
+                                            <option value="{{ $item->id }}" {{ isset($cartoon) && $cartoon->cartoon_product_id == $item->id ? 'selected' : '' }}>
+                                                {{ $item->name }}
+                                            </option>
+                                        @endforeach
                                        
                                     </select>
                                     <label for="basic-default-name">Product</label>
                                 </div>
                             </div>
                             <div class="col-md-6">
-                                 <div class="form-floating form-floating-outline mb-4">
-                                <input type="text" value="{{ isset($room) ? $room->name : '' }}" name="name" class="form-control" id="basic-default-name">
-                                <label for="basic-default-name">Cartoon Quantity</label>
-                            </div>
+                                <div class="form-floating form-floating-outline mb-4">
+                                    <input type="number" value="{{ isset($cartoon) ? $cartoon->cartoon_quantity : '' }}" name="quantity" class="form-control" id="basic-default-name">
+                                    <label for="basic-default-name">Cartoon Quantity</label>
+                                </div>
                             </div>
                         </div>
                        
-                      
-
                         
 
                         <div class="row">
                             <div class="col-md-12">
-                                <button class="btn btn-primary mt-2" type="button">{{ isset($room) ? 'Update' : 'Submit' }}</button>
+                                <button class="btn btn-primary mt-2" type="submit">{{ isset($cartoon) ? 'Update' : 'Submit' }}</button>
                                 <a href="{{URL::to('admin/cartoon/list')}}">
                                     <button class="btn btn-success mt-2" type="button">Back</button>
 

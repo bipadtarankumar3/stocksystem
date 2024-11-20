@@ -21,6 +21,7 @@ class User extends Authenticatable
         'name',
         'email',
         'password',
+        'sd_id',
     ];
 
     /**
@@ -41,4 +42,13 @@ class User extends Authenticatable
     protected $casts = [
         'email_verified_at' => 'datetime',
     ];
+
+
+
+    public function sd()
+    {
+        // Product belongs to one Category
+        return $this->belongsTo(sd_master::class, 'sd_id');
+    }
+
 }

@@ -68,24 +68,6 @@
                 <div>Categories</div>
             </a>
         </li>
-        <li class="menu-item ">
-            <a href="{{URL::To('admin/warehouse/list')}}" class="menu-link">
-                <span class="mdi mdi-file-chart  mdi-24px"></span>
-                <div>Warehouse</div>
-            </a>
-        </li>
-        <li class="menu-item ">
-            <a href="{{URL::To('admin/sd/list')}}" class="menu-link">
-                <span class="mdi mdi-file-chart  mdi-24px"></span>
-                <div>SD</div>
-            </a>
-        </li>
-        <li class="menu-item ">
-            <a href="{{URL::To('admin/uom/list')}}" class="menu-link">
-                <span class="mdi mdi-file-chart  mdi-24px"></span>
-                <div>UOM</div>
-            </a>
-        </li>
 
         <li class="menu-item ">
             <a href="{{URL::To('admin/product/list')}}" class="menu-link">
@@ -93,8 +75,26 @@
                 <div>Items Master</div>
             </a>
         </li>
+             <li class="menu-item ">
+            <a href="{{URL::To('admin/uom/list')}}" class="menu-link">
+                <span class="mdi mdi-emoticon  mdi-24px"></span>
+                <div>UOM Master</div>
+            </a>
+        </li>
+     <li class="menu-item ">
+            <a href="{{URL::To('admin/warehouse/list')}}" class="menu-link">
+                <span class="mdi mdi-emoticon  mdi-24px"></span>
+                <div>Warehouse Master</div>
+            </a>
+        </li>
+     <li class="menu-item ">
+            <a href="{{URL::To('admin/sd/list')}}" class="menu-link">
+                <span class="mdi mdi-emoticon  mdi-24px"></span>
+                <div>SD Master</div>
+            </a>
+        </li>
         <li class="menu-item ">
-            <a href="{{URL::To('admin/product/quantity')}}" class="menu-link">
+            <a href="{{URL::To('admin/product/stock')}}" class="menu-link">
                 <span class="mdi mdi-counter  mdi-24px"></span>
                 <div>Manage Stock</div>
             </a>

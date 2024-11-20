@@ -125,7 +125,7 @@
                     <div class="avatar me-2">
                       <span class="avatar-initial rounded bg-label-primary"><i class="mdi mdi-account-outline mdi-24px"></i></span>
                     </div>
-                    <h4 class="ms-1 mb-0 display-6">42</h4>
+                    <h4 class="ms-1 mb-0 display-6">{{$user?$user:0}}</h4>
                   </div>
                   <p class="mb-0 text-heading">Total Customer</p>
                   {{-- <p class="mb-0">
@@ -143,7 +143,7 @@
                       <span class="avatar-initial rounded bg-label-warning">
                         <i class="mdi mdi-alert mdi-20px"></i></span>
                     </div>
-                    <h4 class="ms-1 mb-0 display-6">8</h4>
+                    <h4 class="ms-1 mb-0 display-6">{{$product?$product:0}}</h4>
                   </div>
                   <p class="mb-0 text-heading">Total Product</p>
                   

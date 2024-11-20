@@ -4,6 +4,7 @@ namespace App\Http\Controllers\admin;
 
 use App\Http\Controllers\Controller;
 use App\Models\User;
+use App\Models\product;
 use Illuminate\Http\Request;
 use Auth;
 use Illuminate\Support\Facades\Hash;
@@ -35,7 +36,12 @@ class AdminAuthController extends Controller
         }
     }
     public function dashboard(){
-        return view('admin.pages.dashboard.dashboard');
+
+        $data['user'] =User::where('user_type','customer')->count();
+        $data['product'] =product::count();
+
+
+        return view('admin.pages.dashboard.dashboard',$data);
     }
     public function profile(){
         return view('admin.auth.profile');

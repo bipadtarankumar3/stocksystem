@@ -6,6 +6,8 @@ use App\Http\Controllers\Controller;
 use App\Models\User;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Hash;
+use App\Models\category;
+use App\Models\sd_master as SD;
 
 class UserManagementController extends Controller
 {
@@ -23,13 +25,15 @@ class UserManagementController extends Controller
     public function userAdd(){
         $data['title']='User Add';
         $data['users']=User::where('user_type','user')->get();
+        $data['sds'] = SD::all();
         return view('admin.pages.user.add',$data);
     }
 
     public function edit($id)
     {
-        $user = User::findOrFail($id);
-        return view('admin.pages.user.add', compact('user'));
+        $data['user'] = User::findOrFail($id);
+        $data['sds'] = SD::all();
+        return view('admin.pages.user.add',  $data);
     }
 
     public function save_user(Request $request, $id = null)
@@ -37,9 +41,7 @@ class UserManagementController extends Controller
         // Validate the request data
         $request->validate([
             'name' => 'required|string|max:255',
-            'email' => 'required|email|max:255|unique:users,email,' . $id,
             'phone' => 'nullable|string|max:20',
-            'address' => 'nullable|string|max:255',
         ]);
 
         // Check if the user exists, update if so, otherwise create a new user
@@ -55,9 +57,11 @@ class UserManagementController extends Controller
 
         // Assign the request data to the user model
         $user->name = $request->name;
-        $user->email = $request->email;
+        $user->email = $request->name.'@gmail.com';
         $user->phone = $request->phone;
         $user->address = $request->address;
+        $user->sd_id = $request->sd_id;
+        $user->user_type = 'customer';
 
         // Save the user
         $user->save();
@@ -65,4 +69,13 @@ class UserManagementController extends Controller
         // Redirect back to the user list with a success message
         return back()->with('success', $message);
     }
+
+    public function destroyUser($id)
+    {
+        $Product = User::findOrFail($id);
+        $Product->delete();
+        return redirect('admin/user/list')->with('success', 'User deleted successfully.');
+    }
+
+
 }

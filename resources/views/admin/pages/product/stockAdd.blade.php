@@ -7,12 +7,12 @@
 
     </h6>
 
-    <form action="{{ isset($condition) ? url('admin/requerment/conditionSave/' . $condition->id) : url('admin/requerment/conditionSave') }}" method="POST" enctype="multipart/form-data" class="browser-default-validation">
+    <form action="{{ isset($stock) ? url('admin/product/stockSave/' . $stock->id) : url('admin/product/stockSave') }}" method="POST" enctype="multipart/form-data" class="browser-default-validation">
         @csrf
         <div class="row">
             <div class="col-md-12">
                 <div class="card">
-                    <h5 class="card-header">{{ isset($room) ? 'Edit condition' : 'Add condition' }}</h5>
+                    <h5 class="card-header">{{ isset($room) ? 'Edit Stock' : 'Add Stock' }}</h5>
                     <div class="card-body">
                         
                         <div class="row">
@@ -21,7 +21,7 @@
                                     <select name="product_id" id="product_id" class="form-control">
                                         <option value="">-- Select Product --</option>
                                         @foreach ($products as $item)
-                                            <option value="{{ $item->id }}" {{ isset($condition) && $condition->product_id == $item->id ? 'selected' : '' }}>
+                                            <option value="{{ $item->id }}" {{ isset($stock) && $stock->product_id == $item->id ? 'selected' : '' }}>
                                                 {{ $item->name }}
                                             </option>
                                         @endforeach
@@ -35,7 +35,7 @@
                                     <select name="warehouse_id" id="warehouse_id" class="form-control">
                                         <option value="">-- Select warehouse --</option>
                                         @foreach ($warehouses as $item)
-                                            <option value="{{ $item->id }}" {{ isset($condition) && $condition->warehouse_id == $item->id ? 'selected' : '' }}>
+                                            <option value="{{ $item->id }}" {{ isset($stock) && $stock->warehouse_id == $item->id ? 'selected' : '' }}>
                                                 {{ $item->name }}
                                             </option>
                                         @endforeach
@@ -46,7 +46,7 @@
                         </div>
                         <div class="col-md-12">
                             <div class="form-floating form-floating-outline mb-4">
-                                <input type="number" value="{{ isset($condition) ? $condition->quantity : '' }}" name="quantity" class="form-control" id="basic-default-name">
+                                <input type="number" value="{{ isset($stock) ? $stock->quantity : '' }}" name="quantity" class="form-control" id="basic-default-name">
                                 <label for="basic-default-name">Product Quantity</label>
                             </div>
                         </div>
@@ -56,8 +56,8 @@
 
                         <div class="row">
                             <div class="col-md-12">
-                                <button class="btn btn-primary mt-2" type="submit">{{ isset($condition) ? 'Update' : 'Submit' }}</button>
-                                <a href="{{URL::to('admin/requerment/condition')}}">
+                                <button class="btn btn-primary mt-2" type="submit">{{ isset($stock) ? 'Update' : 'Submit' }}</button>
+                                <a href="{{URL::to('admin/product/stock')}}">
                                     <button class="btn btn-success mt-2" type="button">Back</button>
 
                                 </a>
