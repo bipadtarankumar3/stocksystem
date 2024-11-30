@@ -116,11 +116,11 @@ class CategoryController extends Controller
             if ($id) {
                 // Update existing category
                 $category = $id ? SD::findOrFail($id) : null;
-                $category->update(['name' => $request->name]);
+                $category->update(['name' => $request->name, 'muthiya_cost' => $request->muthiya_cost, 'gst' => $request->gst, 'gst_received' => $request->gst_received]);
                 return redirect('admin/sd/list')->with('success', 'SD updated successfully.');
             } else {
                 // Add new category
-                SD::create(['name' => $request->name]);
+                SD::create(['name' => $request->name, 'muthiya_cost' => $request->muthiya_cost, 'gst' => $request->gst, 'gst_received' => $request->gst_received]);
                 return redirect('admin/sd/list')->with('success', 'SD added successfully.');
             }
             

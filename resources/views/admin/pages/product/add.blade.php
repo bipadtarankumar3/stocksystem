@@ -40,13 +40,13 @@
                             <div class="col-md-6">
                                 <div class="form-floating form-floating-outline mb-4">
                                     <input type="text" value="{{ isset($product) ? $product->one_no_cartoon : '' }}" name="one_no_cartoon" class="form-control" id="one_no_cartoon">
-                                    <label for="one_no_cartoon">1</label>
+                                    <label for="one_no_cartoon">1 box price</label>
                                 </div>
                             </div>
                             <div class="col-md-6">
                                 <div class="form-floating form-floating-outline mb-4">
                                     <input type="text" value="{{ isset($product) ? $product->one_cartoon : '' }}" name="one_cartoon" class="form-control" id="one_cartoon">
-                                    <label for="one_cartoon">1 Cartoon</label>
+                                    <label for="one_cartoon">1 Cartoon price</label>
                                 </div>
                             </div>
                         </div>
@@ -55,13 +55,13 @@
                             <div class="col-md-6">
                                 <div class="form-floating form-floating-outline mb-4">
                                     <input type="text" value="{{ isset($product) ? $product->two_no_cartoon : '' }}" name="two_no_cartoon" class="form-control" id="two_no_cartoon">
-                                    <label for="two_no_cartoon">2</label>
+                                    <label for="two_no_cartoon">2  box price</label>
                                 </div>
                             </div>
                             <div class="col-md-6">
                                 <div class="form-floating form-floating-outline mb-4">
                                     <input type="text" value="{{ isset($product) ? $product->two_cartoon : '' }}" name="two_cartoon" class="form-control" id="two_cartoon">
-                                    <label for="two_cartoon">2 Cartoon</label>
+                                    <label for="two_cartoon">2 Cartoon price</label>
                                 </div>
                             </div>
                         </div>
@@ -70,13 +70,13 @@
                             <div class="col-md-6">
                                 <div class="form-floating form-floating-outline mb-4">
                                     <input type="text" value="{{ isset($product) ? $product->three_no_cartoon : '' }}" name="three_no_cartoon" class="form-control" id="three_no_cartoon">
-                                    <label for="three_no_cartoon">3</label>
+                                    <label for="three_no_cartoon">3  box price</label>
                                 </div>
                             </div>
                             <div class="col-md-6">
                                 <div class="form-floating form-floating-outline mb-4">
                                     <input type="text" value="{{ isset($product) ? $product->three_cartoon : '' }}" name="three_cartoon" class="form-control" id="three_cartoon">
-                                    <label for="three_cartoon">3 Cartoon</label>
+                                    <label for="three_cartoon">3 Cartoon price</label>
                                 </div>
                             </div>
                         </div>

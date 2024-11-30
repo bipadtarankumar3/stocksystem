@@ -23,12 +23,12 @@
                                         <th>Category</th>
                                         <th>Name</th>
                                         <th>UOM</th>
-                                        <th>1 No. Cartoon</th>
-                                        <th>1 Cartoon</th>
-                                        <th>2 No. Cartoon</th>
-                                        <th>2 Cartoon</th>
-                                        <th>3 No. Cartoon</th>
-                                        <th>3 Cartoon</th>
+                                        <th>1 Box Price</th>
+                                        <th>1 Cartoon Price</th>
+                                        <th>2 Box Price</th>
+                                        <th>2 Cartoon Price</th>
+                                        <th>3 Box Price</th>
+                                        <th>3 Cartoon Price</th>
                                         <th>Min Sale Qty</th>
                                         <th>UOM Qty</th>
                                         <th>ML</th>

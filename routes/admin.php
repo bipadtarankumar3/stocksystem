@@ -89,6 +89,7 @@ Route::group(['prefix' => 'admin', 'as' => 'admin.', 'middleware' => ['App\Http\
     Route::group(['prefix' => 'billing', 'as' => 'billing.'], function () {
         Route::get('list', [BillingController::class, 'billingList']);
         Route::get('add', [BillingController::class, 'billingAdd']);
+        Route::post('print_billing', [BillingController::class, 'print_billing']);
     });
     
     

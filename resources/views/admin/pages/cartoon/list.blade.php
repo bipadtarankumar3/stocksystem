@@ -12,8 +12,8 @@
                 <div class="card">
                     <div class="card-body">
                         <div class="float-right my-2 text-right" style="text-align: right">
-                            <a href="{{ URL::to('admin/cartoon/cartoonSave') }}">
-                                <button type="button" class="btn btn-warning">Add stock</button>
+                            <a href="{{ URL::to('admin/cartoon/add') }}">
+                                <button type="button" class="btn btn-warning">Add Cartoon</button>
                             </a>
                         </div>
                         <div class="table-responsive text-nowrap">

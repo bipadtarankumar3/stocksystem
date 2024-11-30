@@ -21,6 +21,27 @@
                             <label for="name">Name</label>
                             <input type="text" name="name" placeholder="sd Name" value="{{ isset($sd) ? $sd->name : '' }}" required class="form-control">
                         </div>
+                        <div class="form-group">
+                            <label for="name">Muthiya Cost</label>
+                            <select name="muthiya_cost" id="muthiya_cost" class="form-control">
+                                <option value="Yes" @if(isset($sd) && $sd->muthiya_cost == 'Yes') selected @endif>Yes</option>
+                                <option value="No" @if(isset($sd) && $sd->muthiya_cost == 'No') selected @endif>No</option>
+                            </select>
+                        </div>
+                        <div class="form-group">
+                            <label for="name">Gst</label>
+                             <select name="gst" id="gst" class="form-control">
+                                <option value="Yes" @if(isset($sd) && $sd->gst == 'Yes') selected @endif>Yes</option>
+                                <option value="No" @if(isset($sd) && $sd->gst == 'No') selected @endif>No</option>
+                            </select>
+                        </div>
+                        <div class="form-group">
+                            <label for="name">GST received</label>
+                             <select name="gst_received" id="gst_received" class="form-control">
+                                <option value="Yes" @if(isset($sd) && $sd->gst_received == 'Yes') selected @endif>Yes</option>
+                                <option value="No" @if(isset($sd) && $sd->gst_received == 'No') selected @endif>No</option>
+                            </select>
+                        </div>
                         <button class="btn btn-primary mt-2" type="submit">{{ isset($sd) ? 'Update' : 'Submit' }}</button>
                     </form>
                 </div>
@@ -45,7 +66,9 @@
                                 <tr>
                                     <th>#</th>
                                     <th>Name</th>
-                                    <th>Date</th>
+                                    <th>Muthiya Cost</th>
+                                    <th>Gst</th>
+                                    <th>Gst Received</th>
                                     <th>Action</th>
                                 </tr>
                             </thead>
@@ -54,7 +77,9 @@
                                     <tr>
                                         <td>{{ $key + 1 }}</td>
                                         <td>{{ $sd->name }}</td>
-                                        <td>{{ $sd->created_at->format('Y-m-d') }}</td>
+                                        <td>{{ $sd->muthiya_cost }}</td>
+                                        <td>{{ $sd->gst }}</td>
+                                        <td>{{ $sd->gst_received }}</td>
                                         <td>
                                             <a href="{{ url('admin/sd/edit/' . $sd->id) }}" class="btn btn-warning btn-sm">Edit</a>
                                             <a href="{{ url('admin/sd/delete/' . $sd->id) }}" onclick="return confirm('Are you sure?')" class="btn btn-danger btn-sm">Delete</a>

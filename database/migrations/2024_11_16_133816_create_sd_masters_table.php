@@ -14,6 +14,9 @@ return new class extends Migration
         Schema::create('sd_masters', function (Blueprint $table) {
             $table->id();
             $table->string('name');
+            $table->string('muthiya_cost')->nullable();
+            $table->string('gst')->nullable();
+            $table->string('gst_received')->nullable();
             $table->string('status');
             $table->timestamps();
         });
