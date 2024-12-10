@@ -55,7 +55,10 @@
             <table class="table table-bordered">
                 <thead>
                     <tr>
-                        <th>Location</th>
+                        @if (isset($formData['customer_copy']) && $formData['customer_copy'] == 'customer_copy')
+                         <th>Location</th>   
+                        @endif
+                        
                         <th>No of Pkgs</th>
                         <th>Product</th>
                         <th>Quantity</th>
@@ -66,12 +69,14 @@
                 <tbody>
                     @foreach ($formData['warehouse'] as $index => $warehouseId)
                         <tr>
+                            @if (isset($formData['customer_copy']) && $formData['customer_copy'] == 'customer_copy')
                             <td>
                                 @php
                                     $warehouseItem = $warehouse->firstWhere('id', $warehouseId);
                                 @endphp
                                 {{ $warehouseItem ? $warehouseItem->name : 'N/A' }}
                             </td>
+                            @endif
                             <td>{{ $formData['no_of_pkgs'][$index] }}</td>
                             <td>
                                 @php
@@ -89,7 +94,7 @@
 
                     @if (isset($sdDetails) && $sdDetails->muthiya_cost == 'Yes')
                         <tr id="muthiyaCost" >
-                            <td colspan="4"></td>
+                            <td @if (isset($formData['customer_copy']) && $formData['customer_copy'] == 'customer_copy') colspan="4" @else colspan="3" @endif></td>
                             <td>Muthiya Cost</td>
                             <td>
                                 <b>{{ $formData['muthiya_cost'] }}</b>
@@ -100,7 +105,7 @@
 
                     @if (isset($sdDetails) && $sdDetails->gst == 'Yes')
                         <tr id="GST" >
-                            <td colspan="4"></td>
+                            <td @if (isset($formData['customer_copy']) && $formData['customer_copy'] == 'customer_copy') colspan="4" @else colspan="3" @endif></td>
                             <td>GST</td>
                             <td>
                                 <b>{{ $formData['gst'] }}</b>
@@ -111,7 +116,7 @@
 
                     @if (isset($sdDetails) && $sdDetails->gst_received == 'Yes')
                         <tr id="GSTReceived" >
-                            <td colspan="4"></td>
+                            <td @if (isset($formData['customer_copy']) && $formData['customer_copy'] == 'customer_copy') colspan="4" @else colspan="3" @endif></td>
                             <td>GST Received</td>
                             <td>
                                 <b>{{ $formData['gst_received'] }}</b>
@@ -122,7 +127,7 @@
 
                     
                     <tr>
-                        <td colspan="4"></td>
+                        <td @if (isset($formData['customer_copy']) && $formData['customer_copy'] == 'customer_copy') colspan="4" @else colspan="3" @endif></td>
                         <td>Grand Total Cost</td>
                         <td>
                             <b>{{ $formData['grand_total'] }}</b>

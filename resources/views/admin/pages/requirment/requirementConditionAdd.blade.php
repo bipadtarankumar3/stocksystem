@@ -16,7 +16,7 @@
                     <div class="card-body">
                         
                         <div class="row">
-                            <div class="col-md-6">
+                            <div class="col-md-3">
                                 <div class="form-floating form-floating-outline mb-4">
                                     <select name="product_id" id="product_id" class="form-control">
                                         <option value="">-- Select Product --</option>
@@ -30,17 +30,56 @@
                                     <label for="basic-default-name">Product</label>
                                 </div>
                             </div>
-                            <div class="col-md-6">
+                            <div class="col-md-3">
                                 <div class="form-floating form-floating-outline mb-4">
-                                    <select name="warehouse_id" id="warehouse_id" class="form-control">
-                                        <option value="">-- Select warehouse --</option>
+                                    <select name="warehouse_id_one" id="warehouse_id_one" class="form-control">
+                                        <option value="">-- Select warehouse 1 --</option>
                                         @foreach ($warehouses as $item)
-                                            <option value="{{ $item->id }}" {{ isset($condition) && $condition->warehouse_id == $item->id ? 'selected' : '' }}>
+                                            <option value="{{ $item->id }}" {{ isset($condition) && $condition->warehouse_id_one == $item->id ? 'selected' : '' }}>
                                                 {{ $item->name }}
                                             </option>
                                         @endforeach
                                     </select>
-                                    <label for="basic-default-name">Warehouse</label>
+                                    <label for="basic-default-name">Warehouse 1</label>
+                                </div>
+                            </div>
+                            <div class="col-md-2">
+                                <div class="form-floating form-floating-outline mb-4">
+                                    <select name="warehouse_id_two" id="warehouse_id_two" class="form-control">
+                                        <option value="">-- Select warehouse 2 --</option>
+                                        @foreach ($warehouses as $item)
+                                            <option value="{{ $item->id }}" {{ isset($condition) && $condition->warehouse_id_two == $item->id ? 'selected' : '' }}>
+                                                {{ $item->name }}
+                                            </option>
+                                        @endforeach
+                                    </select>
+                                    <label for="basic-default-name">Warehouse 2</label>
+                                </div>
+                            </div>
+                            <div class="col-md-2">
+                                <div class="form-floating form-floating-outline mb-4">
+                                    <select name="warehouse_id_three" id="warehouse_id_three" class="form-control">
+                                        <option value="">-- Select warehouse 3 --</option>
+                                        @foreach ($warehouses as $item)
+                                            <option value="{{ $item->id }}" {{ isset($condition) && $condition->warehouse_id_three == $item->id ? 'selected' : '' }}>
+                                                {{ $item->name }}
+                                            </option>
+                                        @endforeach
+                                    </select>
+                                    <label for="basic-default-name">Warehouse 3</label>
+                                </div>
+                            </div>
+                            <div class="col-md-2">
+                                <div class="form-floating form-floating-outline mb-4">
+                                    <select name="warehouse_id_four" id="warehouse_id_four" class="form-control">
+                                        <option value="">-- Select warehouse 4 --</option>
+                                        @foreach ($warehouses as $item)
+                                            <option value="{{ $item->id }}" {{ isset($condition) && $condition->warehouse_id_four == $item->id ? 'selected' : '' }}>
+                                                {{ $item->name }}
+                                            </option>
+                                        @endforeach
+                                    </select>
+                                    <label for="basic-default-name">Warehouse 4</label>
                                 </div>
                             </div>
                         </div>

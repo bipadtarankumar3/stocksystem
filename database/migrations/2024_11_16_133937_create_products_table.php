@@ -13,19 +13,19 @@ return new class extends Migration
     {
         Schema::create('products', function (Blueprint $table) {
             $table->id();
-            $table->string('name');
-            $table->integer('category_id');
-            $table->text('one_no_cartoon');
-            $table->text('one_cartoon');
-            $table->text('two_no_cartoon');
-            $table->text('two_cartoon');
-            $table->text('three_no_cartoon');
-            $table->text('three_cartoon');
-            $table->integer('uom_id');
-            $table->integer('min_sale_qty');
-            $table->integer('uom_qty');
-            $table->string('ml');
-            $table->string('product_status');
+            $table->string('name')->nullable();
+            $table->integer('category_id')->nullable();
+            $table->text('one_no_cartoon')->nullable();
+            $table->text('one_cartoon')->nullable();
+            $table->text('two_no_cartoon')->nullable();
+            $table->text('two_cartoon')->nullable();
+            $table->text('three_no_cartoon')->nullable();
+            $table->text('three_cartoon')->nullable();
+            $table->integer('uom_id')->nullable();
+            $table->integer('min_sale_qty')->nullable();
+            $table->integer('uom_qty')->nullable();
+            $table->string('ml')->nullable();
+            $table->string('product_status')->nullable();
 
             $table->timestamps();
         });

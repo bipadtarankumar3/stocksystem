@@ -38,7 +38,7 @@ class BillingController extends Controller
         $data['products'] = product::where('product_status','Active')->get();
         $data['formData'] = $request->all();
         $data['sdDetails'] = SD::where('id', $request->sd_id)->first();
-
+        // dd($data['formData']);
         return view('admin.pages.billing.printBilling',$data);
     }
 

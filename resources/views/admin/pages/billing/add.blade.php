@@ -102,7 +102,7 @@
                                             <select name="warehouse[]" id="warehouse" class="form-control warehouse">
                                               
                                                 @foreach ($warehouse as $item)
-                                                    <option value="{{$item->id}}">{{$item->name}}</option>
+                                                    <option value="{{$item->id}}" @if($item->name == 'ML') selected @endif>{{$item->name}}</option>
                                                 @endforeach
                                             </select>
                                         </td>
@@ -183,8 +183,11 @@
                 <div class="row">
                     <div class="col-md-12">
                         
-                        <button type="submit" class="btn btn-primary" >
-                            Preview
+                        <button type="submit" name="customer_copy" value="customer_copy" class="btn btn-primary" >
+                            Customer copy
+                        </button>
+                        <button type="submit" name="self_copy" value="self_copy" class="btn btn-warning" >
+                            Self copy
                         </button>
                         <!--<button class="btn btn-primary mt-2" type="button" onclick="printDiv('printableArea')">Preview</button>-->
                     </div>

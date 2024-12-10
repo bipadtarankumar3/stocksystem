@@ -23,7 +23,7 @@ class RequirmentController extends Controller
 
     public function requirementCondition(){
         $data['title']='Requirement Condition Lists';
-        $data['conditions'] = requirementCondition::with(['product', 'warehouse'])->orderBy('id','desc')->get();
+        $data['conditions'] = requirementCondition::with(['product', 'warehouse_one','warehouse_two','warehouse_three'])->orderBy('id','desc')->get();
 
         return view('admin.pages.requirment.requirementCondition',$data);
     }
@@ -42,7 +42,10 @@ class RequirmentController extends Controller
             $condition = requirementCondition::findOrFail($id);
             $condition->update([
                 'product_id' => $request->product_id,
-                'warehouse_id' => $request->warehouse_id,
+                'warehouse_id_one' => $request->warehouse_id_one,
+                'warehouse_id_two' => $request->warehouse_id_two,
+                'warehouse_id_three' => $request->warehouse_id_three,
+                'warehouse_id_four' => $request->warehouse_id_four,
                 'quantity' => $request->quantity
             ]);
 
@@ -51,7 +54,10 @@ class RequirmentController extends Controller
         } else {
             requirementCondition::create([
                 'product_id' => $request->product_id,
-                'warehouse_id' => $request->warehouse_id,
+                'warehouse_id_one' => $request->warehouse_id_one,
+                'warehouse_id_two' => $request->warehouse_id_two,
+                'warehouse_id_three' => $request->warehouse_id_three,
+                'warehouse_id_four' => $request->warehouse_id_four,
                 'quantity' => $request->quantity,
             ]);
 
