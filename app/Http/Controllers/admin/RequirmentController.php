@@ -43,9 +43,9 @@ class RequirmentController extends Controller
             $condition->update([
                 'product_id' => $request->product_id,
                 'warehouse_id_one' => $request->warehouse_id_one,
-                // 'warehouse_id_two' => $request->warehouse_id_two,
-                // 'warehouse_id_three' => $request->warehouse_id_three,
-                // 'warehouse_id_four' => $request->warehouse_id_four,
+                'warehouse_id_two' => $request->warehouse_id_two,
+                'warehouse_id_three' => $request->warehouse_id_three,
+                'warehouse_id_four' => $request->warehouse_id_four,
                 'quantity' => $request->quantity
             ]);
 

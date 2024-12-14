@@ -23,9 +23,9 @@
                                         <th>ID</th>
                                         <th>Action</th>
                                         <th>Warehouse Name</th>
-                                        {{-- <th>Warehouse Name Two</th>
+                                        <th>Warehouse Name Two</th>
                                         <th>Warehouse Name Three</th>
-                                        <th>Warehouse Name Four</th> --}}
+                                        <th>Warehouse Name Four</th>
                                         <th>Product Name</th>
                                         <th>Quantity</th>
                                     </tr>
@@ -43,9 +43,9 @@
                                             </a>
                                         </td>
                                         <td>{{ $stock->warehouse_one->name ?? 'No Warehouse Assigned' }}</td>
-                                        {{-- <td>{{ $stock->warehouse_two->name ?? 'No Warehouse Assigned' }}</td>
+                                        <td>{{ $stock->warehouse_two->name ?? 'No Warehouse Assigned' }}</td>
                                         <td>{{ $stock->warehouse_three->name ?? 'No Warehouse Assigned' }}</td>
-                                        <td>{{ $stock->warehouse_four->name ?? 'No Warehouse Assigned' }}</td> --}}
+                                        <td>{{ $stock->warehouse_four->name ?? 'No Warehouse Assigned' }}</td>
                                         <td>{{ $stock->product->name ?? 'No Product Assigned' }}</td>
 
                                         <td>{{ $stock->quantity }}</td>
