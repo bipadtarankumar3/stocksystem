@@ -147,5 +147,31 @@ class ProductController extends Controller
         return redirect('admin/product/stock')->with('success', 'stock deleted successfully.');
     }
 
+    public function checkingProductQuantity(Request $request){
+
+        $product = productStock::where('product_id', $request->product_id)->where('warehouse_id', $request->warehouse_id)->first();
+        if ($product) {
+       
+            if ($product->quantity >= $request->quantity) {
+                return response()->json([
+                    'status' => true,
+                    'message' => 'Product quantity is available'
+                ]);   
+            } else {
+                return response()->json([
+                    'status' => false,
+                    'message' => 'Product quantity is not available'
+                ]);  
+            }
+            
+        } else {
+            return response()->json([
+                'status' => false,
+                'message' => 'There is no product in this warehouse'
+            ]);    
+        }
+
+    }
+
 
 }

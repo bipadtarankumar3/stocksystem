@@ -6,7 +6,7 @@
         <div class="card-header">
             <h3 class="mb-0">{{ $title }}</h3>
         </div>
-        <div class="card-body" id="printableArea">
+        <div class="card-body" id="printableArea" data-form-data='@json($formData)'>
             <!-- Display Submitted Data -->
             <h4>Customer Details</h4>
             <table class="table table-bordered">
@@ -140,14 +140,49 @@
 
         <!-- Print Button -->
         <div class="card-footer text-end">
+            @if (isset($formData['customer_copy']) && $formData['customer_copy'] == 'customer_copy')
+            <button onclick="printCustomerDiv('printableArea')" class="btn btn-primary">
+                <i class="fa fa-print"></i> Print
+            </button>
+            @else
             <button onclick="printDiv('printableArea')" class="btn btn-primary">
                 <i class="fa fa-print"></i> Print
             </button>
+            @endif
+
         </div>
     </div>
 </div>
 
 <script>
+
+    function printCustomerDiv(divId) {
+        // Retrieve encoded form data
+        const formData = document.getElementById(divId).getAttribute('data-form-data');
+
+        // Perform the AJAX request
+        $.ajax({
+            url: "{{ URL::to('admin/billing/bill-product-minus') }}",
+            method: 'POST',
+            data: {
+                product_details: JSON.parse(formData), // Parse the JSON data
+                _token: '{{ csrf_token() }}'
+            },
+            success: function (response) {
+                // Handle the print logic
+                var printContents = document.getElementById(divId).innerHTML;
+                var originalContents = document.body.innerHTML;
+
+                document.body.innerHTML = printContents;
+                window.print();
+                document.body.innerHTML = originalContents;
+
+                location.reload(); // Reload to restore the original layout
+            }
+        });
+    }
+
+
     function printDiv(divId) {
         var printContents = document.getElementById(divId).innerHTML;
         var originalContents = document.body.innerHTML;
@@ -157,5 +192,6 @@
         document.body.innerHTML = originalContents;
         location.reload(); // Reload to restore the original layout
     }
+
 </script>
 @endsection

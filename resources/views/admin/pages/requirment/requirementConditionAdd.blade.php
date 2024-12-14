@@ -16,7 +16,7 @@
                     <div class="card-body">
                         
                         <div class="row">
-                            <div class="col-md-3">
+                            <div class="col-md-6">
                                 <div class="form-floating form-floating-outline mb-4">
                                     <select name="product_id" id="product_id" class="form-control">
                                         <option value="">-- Select Product --</option>
@@ -30,10 +30,10 @@
                                     <label for="basic-default-name">Product</label>
                                 </div>
                             </div>
-                            <div class="col-md-3">
+                            <div class="col-md-6">
                                 <div class="form-floating form-floating-outline mb-4">
                                     <select name="warehouse_id_one" id="warehouse_id_one" class="form-control">
-                                        <option value="">-- Select warehouse 1 --</option>
+                                        <option value="">-- Select warehouse  --</option>
                                         @foreach ($warehouses as $item)
                                             <option value="{{ $item->id }}" {{ isset($condition) && $condition->warehouse_id_one == $item->id ? 'selected' : '' }}>
                                                 {{ $item->name }}
@@ -43,7 +43,7 @@
                                     <label for="basic-default-name">Warehouse 1</label>
                                 </div>
                             </div>
-                            <div class="col-md-2">
+                            {{-- <div class="col-md-2">
                                 <div class="form-floating form-floating-outline mb-4">
                                     <select name="warehouse_id_two" id="warehouse_id_two" class="form-control">
                                         <option value="">-- Select warehouse 2 --</option>
@@ -81,7 +81,7 @@
                                     </select>
                                     <label for="basic-default-name">Warehouse 4</label>
                                 </div>
-                            </div>
+                            </div> --}}
                         </div>
                         <div class="col-md-12">
                             <div class="form-floating form-floating-outline mb-4">

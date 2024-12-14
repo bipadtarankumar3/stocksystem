@@ -105,17 +105,22 @@
                                                     <option value="{{$item->id}}" @if($item->name == 'ML') selected @endif>{{$item->name}}</option>
                                                 @endforeach
                                             </select>
+                                            <span style="color: red" class="warehouse-error"></span>
                                         </td>
                                         <td><input type="text" name="no_of_pkgs[]" class="form-control"></td>
                                         <td style="width: 20%;">
-                                            <select name="product[]" class="form-control product-select" onchange="updatePrice(this)">
+                                            <select name="product[]" class="form-control product-select">
                                                 <option value="">Select Product</option>
                                                 @foreach ($products as $item)
                                                     <option value="{{$item->id}}" data-price="{{$item->price}}">{{$item->name}}</option>
                                                 @endforeach
                                             </select>
+                                            <span style="color: red" class="product-error"></span>
                                         </td>
-                                        <td><input type="number" name="quantity[]" class="form-control quantity-input" onkeyup="updateTotal(this)" ></td>
+                                        <td>
+                                            <input type="number" name="quantity[]" class="form-control quantity-input" onkeyup="updateTotal(this)" >
+                                            <span style="color: red" class="product-quantity-error"></span>
+                                        </td>
                                         <td><input type="text" name="price[]" class="form-control price-input" value="0" onkeyup="updateTotal(this)" ></td>
                                         <td><input type="text" name="total[]" class="form-control total-input" ></td>
                                         <td>
@@ -315,17 +320,21 @@ function printDiv(divName) {
                     <option value="">Select Location</option>
                     ${warehouseOptions}
                 </select>
+                 <span style="color: red" class="warehouse-error"></span>
             </td>
             <td><input type="text" name="no_of_pkgs[]" class="form-control"></td>
             <td style="width: 20%;">
-                <select name="product[]" id="product" class="form-control">
+                <select name="product[]" id="product" class="form-control product-select">
                     <option value="">Select Product</option>
                     ${productOptions}
                 </select>
+                <span style="color: red" class="product-error"></span>
             </td>
-            <td><input type="number" name="quantity[]" class="form-control quantity" oninput="calculateTotal(this)"></td>
-            <td><input type="number" name="price[]" class="form-control price" oninput="calculateTotal(this)"></td>
-            <td><input type="number" name="total[]" class="form-control total" readonly></td>
+            <td><input type="number" name="quantity[]" class="form-control quantity-input"  onkeyup="updateTotal(this)">
+                 <span style="color: red" class="product-quantity-error"></span>
+            </td>
+            <td><input type="number" name="price[]" class="form-control price-input"  onkeyup="updateTotal(this)"></td>
+            <td><input type="number" name="total[]" class="form-control total-input" readonly></td>
             <td>
                 <button type="button" class="btn btn-danger waves-effect waves-light remove-row"><i class="fa-solid fa-trash"></i></button>
             </td>
@@ -335,7 +344,61 @@ function printDiv(divName) {
 }
 
 
+function checkingProductQuantity(element) {
+    const row = element.closest('tr'); // Get the current row
+    const warehouse = row.querySelector('.warehouse'); // Product input in the current row
+    const product = row.querySelector('.product-select'); // Product input in the current row
+    const quantityInput = row.querySelector('.quantity-input'); // Quantity input in the current row
+
+    if (warehouse.value === '') {
+        warehouse.classList.add('is-invalid');
+        warehouse.nextElementSibling.textContent = 'Please select a warehouse';
+        return;
+    }else{
+        warehouse.classList.remove('is-invalid');
+        warehouse.nextElementSibling.textContent = '';
+    }
+
+    if (product.value === '') {
+        product.classList.add('is-invalid');
+        product.nextElementSibling.textContent = 'Please select a product';
+        return;
+    }else{
+        product.classList.remove('is-invalid');
+        product.nextElementSibling.textContent = '';
+    }
+
+    $.ajax({
+        url: "{{ URL::to('admin/product/checking-product-quantity') }}",
+        method: 'POST',
+        data: {
+            product_id: product.value,
+            warehouse_id: warehouse.value,
+            quantity: quantityInput.value,
+            _token: '{{ csrf_token() }}'
+        },
+        success: function (response) {
+            if (response.status === false) {
+                quantityInput.classList.add('is-invalid');
+                quantityInput.nextElementSibling.textContent = response.message;
+            } else {
+                quantityInput.classList.remove('is-invalid');
+                quantityInput.nextElementSibling.textContent = '';
+            }
+        }
+    });
+
+    console.log(product.value);
+    console.log(quantityInput.value);
+}
+
 function updateTotal(element) {
+
+    // Get the quantity and price inputs
+    checkingProductQuantity(element);
+
+    console.log(element,'--------------------------------');
+
     const row = element.closest('tr'); // Get the current row
     const quantityInput = row.querySelector('.quantity-input'); // Quantity input in the current row
     const priceInput = row.querySelector('.price-input'); // Price input in the current row

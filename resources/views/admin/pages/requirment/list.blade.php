@@ -32,7 +32,7 @@
                                         <td>{{ $stock->warehouse->name ?? 'No Warehouse Assigned' }}</td>
                                         <td>{{ $stock->product->name ?? 'No Product Assigned' }}</td>
                                         
-                                        <td>{{ $stock->quantity }}</td>
+                                        <td>{{ $stock->minimum_quantity }}</td>
                                     </tr>
                                     @endforeach
                                 </tbody>

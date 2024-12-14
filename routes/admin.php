@@ -82,6 +82,9 @@ Route::group(['prefix' => 'admin', 'as' => 'admin.', 'middleware' => ['App\Http\
         Route::post('stockSave/{id}', [ProductController::class, 'stockSave']);
         Route::get('stockEdit/{id}', [ProductController::class, 'stockEdit']);
         Route::get('stockDelete/{id}', [ProductController::class, 'stockDelete']);
+
+        Route::post('checking-product-quantity', [ProductController::class, 'checkingProductQuantity']);
+        
         
     });
 
@@ -90,6 +93,7 @@ Route::group(['prefix' => 'admin', 'as' => 'admin.', 'middleware' => ['App\Http\
         Route::get('list', [BillingController::class, 'billingList']);
         Route::get('add', [BillingController::class, 'billingAdd']);
         Route::post('print_billing', [BillingController::class, 'print_billing']);
+        Route::post('bill-product-minus', [BillingController::class, 'billProductMinus']);
     });
     
     
