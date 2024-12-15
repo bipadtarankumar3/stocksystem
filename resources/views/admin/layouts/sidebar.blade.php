@@ -135,15 +135,36 @@
             </ul>
         </li> 
 
-
         <li class="menu-item ">
-            <a href="{{URL::To('admin/billing/add')}}" class="menu-link">
+            <a href="javascript:void(0);" class="menu-link menu-toggle">
                 <span class="mdi mdi-file-chart  mdi-24px"></span>
-                <div>Billing Management</div>
+                <div>Billing</div>
             </a>
+            <ul class="menu-sub">
 
 
-        </li>
+
+                <li class="menu-item ">
+                    <a href="{{URL::to('admin/billing/add')}}" class="menu-link">
+                        
+                        <div>Billing Add</div>
+                    </a>
+
+
+                </li>
+                <li class="menu-item ">
+                    <a href="{{URL::to('admin/billing/list')}}" class="menu-link">
+                        <div>Billing list</div>
+                    </a>
+
+
+                </li>
+                
+            </ul>
+        </li> 
+
+
+    
 
         <!--<li class="menu-item ">-->
         <!--    <a href="javascript:void(0);" class="menu-link menu-toggle">-->

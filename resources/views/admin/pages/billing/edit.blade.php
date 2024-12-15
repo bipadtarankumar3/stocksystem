@@ -7,8 +7,9 @@
     </h6>
 
     <!-- Printable content starts -->
-    <form action="{{ isset($billing) ? url('admin/billing/print_billing/' . $billing->id) : url('admin/billing/print_billing') }}" method="POST" enctype="multipart/form-data" class="browser-default-validation">
+    <form action="{{ url('admin/billing/print_billing') }}" method="POST" enctype="multipart/form-data" class="browser-default-validation">
         @csrf
+        <input type="hidden" name="billing_id" @if(isset($billing)) value="{{$billing->id}}" @endif>
         <div class="card">
             <h5 class="card-header">Warehouse Billing</h5>
             <div class="card-body">
@@ -16,7 +17,7 @@
                     <div class="row">
                         <div class="col-md-3">
                             <div class="form-floating form-floating-outline mb-4">
-                                <input type="text" name="serial_no" value="1" required name="serial_no" class="form-control" id="basic-default-name">
+                                <input type="text" name="serial_no" value="1" @if(isset($billing)) value="{{$billing->serial_no}}" @endif required name="serial_no" class="form-control" id="basic-default-name">
                                 <label for="basic-default-name">Serial number </label>
                             </div>
                         </div>
@@ -25,7 +26,7 @@
                                 <select name="customer_id" required id="customer_id" class="form-control" onchange="getCustomerType(this.value)">
                                     <option value="">-- Select Customer --</option>
                                     @foreach ($customers as $item)
-                                    <option value="{{ $item->id }}">{{ $item->name }}</option>
+                                    <option value="{{ $item->id }}" @if(isset($billing) && $billing->customer_id == $item->id) selected @endif>{{ $item->name }}</option>
                                     @endforeach
                                     
                                 </select>
@@ -42,7 +43,7 @@
                                             data-gst="{{ $item->gst }}" 
                                             data-muthiya-cost="{{ $item->muthiya_cost }}" 
                                             data-gst-received="{{ $item->gst_received }}"
-                                            >{{ $item->name }}</option>
+                                             @if(isset($billing) && $billing->sd_id == $item->id) selected @endif>{{ $item->name }}</option>
                                     @endforeach
                                 </select>
                                 <label for="basic-default-name">SD Type</label>
@@ -50,14 +51,14 @@
                         </div>  
                         <div class="col-md-3">
                             <div class="form-floating form-floating-outline mb-4">
-                                <input type="text"  value="{{ isset($room) ? $room->name : '' }}" required name="courier_to_kolkata" class="form-control" id="basic-default-name">
+                                <input type="text"  value="{{ isset($billing) ? $billing->courier_to_kolkata : '' }}" required name="courier_to_kolkata" class="form-control" id="basic-default-name">
                               
                                 <label for="basic-default-name">Courier To Kolkata</label>
                             </div>
                         </div>  
                         <div class="col-md-3">
                             <div class="form-floating form-floating-outline mb-4">
-                                <input type="text" value="{{ isset($room) ? $room->name : '' }}" name="courier" class="form-control" id="basic-default-name">
+                                <input type="text" value="{{ isset($billing) ? $billing->courier : '' }}" name="courier" class="form-control" id="basic-default-name">
                               
                                 <label for="basic-default-name">Courier</label>
                             </div>
@@ -65,14 +66,14 @@
                         
                         <div class="col-md-4">
                             <div class="form-floating form-floating-outline mb-4">
-                                <input type="text" value="{{ isset($room) ? $room->transport : '' }}" name="transport" class="form-control" id="basic-default-name">
+                                <input type="text" value="{{ isset($billing) ? $billing->transport : '' }}" name="transport" class="form-control" id="basic-default-name">
                               
                                 <label for="basic-default-name">Transport </label>
                             </div>
                         </div>  
                         <div class="col-md-4">
                             <div class="form-floating form-floating-outline mb-4">
-                                <input type="date" value="{{ isset($room) ? $room->date : date('Y-m-d') }}" name="date" class="form-control" id="basic-default-name">
+                                <input type="date" value="{{ isset($billing) ? $billing->date : date('Y-m-d') }}" name="date" class="form-control" id="basic-default-name">
                                 <label for="basic-default-name">Date</label>
                             </div>
                         </div>
@@ -97,6 +98,56 @@
                                     </tr>
                                 </thead>
                                 <tbody class="table_body_row">
+
+                                    @if(isset($billing))
+                                        @foreach ($billing->billItems as $key => $bill)
+                                            <tr>
+                                                <td style="width: 20%;">
+                                                    <select name="warehouse[]" id="warehouse" class="form-control warehouse">
+                                                      
+                                                        @foreach ($warehouse as $item)
+                                                            <option value="{{$item->id}}"  @if($bill->warehouse == $item->id) selected @endif>{{$item->name}}</option>
+                                                        @endforeach
+                                                    </select>
+                                                    <span style="color: red" class="warehouse-error"></span>
+                                                </td>
+                                                <td><input type="text" name="no_of_pkgs[]" value="{{$bill->no_of_pkgs}}" class="form-control"></td>
+                                                <td style="width: 20%;">
+                                                    <select name="product[]" class="form-control product-select">
+                                                        <option value="">Select Product</option>
+                                                        @foreach ($products as $item)
+                                                            <option value="{{$item->id}}" data-price="{{$item->price}}" @if($item->id == $bill->product) selected @endif>{{$item->name}}</option>
+                                                        @endforeach
+                                                    </select>
+                                                    <span style="color: red" class="product-error"></span>
+                                                </td>
+                                                
+                                                <td>
+                                                    <input type="number" name="quantity[]" class="form-control quantity-input" value="{{$bill->quantity}}" onkeyup="updateTotal(this)" >
+                                                    <span style="color: red" class="product-quantity-error"></span>
+                                                </td>
+                                                <td>    
+                                                    <input type="number" name="price[]" class="form-control price-input" value="{{$bill->price}}" onkeyup="updateTotal(this)" >
+                                                    <span style="color: red" class="product-price-error"></span>    
+                                                </td>
+                                                <td>
+                                                    <input type="number" name="total[]" class="form-control total-input" value="{{$bill->total}}" readonly>
+                                                    <span style="color: red" class="product-total-error"></span>    
+                                                </td>
+                                                <td>
+                                                    @if ($key == 0)
+                                                    <button type="button" onclick="add_more_row()" class="btn btn-info waves-effect waves-light">
+                                                        <i class="fa-solid fa-plus"></i>
+                                                    </button>
+                                                    @else
+                                                    <button type="button" class="btn btn-danger waves-effect waves-light remove-row"><i class="fa-solid fa-trash"></i></button>
+                                                    @endif
+                                                    
+                                                </td>
+                                            </tr>
+                                        @endforeach
+
+                                    @else
                                     <tr>
                                         <td style="width: 20%;">
                                             <select name="warehouse[]" id="warehouse" class="form-control warehouse">
@@ -129,12 +180,15 @@
                                             </button>
                                         </td>
                                     </tr>
+                                    @endif
+
+                                   
                                     
                                     
 
                                 </tbody>
                                 <tfoot>
-                                    <tr id="muthiyaCost" style="display: none">
+                                    <tr id="muthiyaCost" @if($billing->muthiya_cost != null) @else style="display: none" @endif>
                                         <td></td>
                                         <td></td>
                                         <td></td>
@@ -142,10 +196,10 @@
                                         <td></td>
                                         <td>Muthiya Cost </td>
                                         <td>
-                                            <input type="text" value="0" name="muthiya_cost" id="muthiya_cost" class="form-control" onkeyup="calculateGrandTotal()">
+                                            <input type="text" @if($billing->muthiya_cost != null) value="{{$billing->muthiya_cost}}" @else value="0" @endif name="muthiya_cost" id="muthiya_cost" class="form-control" onkeyup="calculateGrandTotal()">
                                         </td>
                                     </tr>
-                                    <tr id="GST" style="display: none">
+                                    <tr id="GST"  @if($billing->gst != null) @else style="display: none" @endif>
                                         <td></td>
                                         <td></td>
                                         <td></td>
@@ -153,10 +207,10 @@
                                         <td></td>
                                         <td>GST</td>
                                         <td>
-                                            <input type="text" value="0" name="gst" id="gst" class="form-control" onkeyup="calculateGrandTotal()">
+                                            <input type="text" @if($billing->gst != null) value="{{$billing->gst}}" @else value="0" @endif name="gst" id="gst" class="form-control" onkeyup="calculateGrandTotal()">
                                         </td>
                                     </tr>
-                                    <tr id="GSTReceived" style="display: none">
+                                    <tr id="GSTReceived"  @if($billing->gst_received != null) @else style="display: none" @endif>
                                         <td></td>
                                         <td></td>
                                         <td></td>
@@ -164,7 +218,7 @@
                                         <td></td>
                                         <td>GST Received</td>
                                         <td>
-                                            <input type="text" value="0" name="gst_received" id="gst_received" class="form-control" onkeyup="calculateGrandTotal()">
+                                            <input type="text"  @if($billing->gst_received != null) value="{{$billing->gst_received}}" @else value="0" @endif name="gst_received" id="gst_received" class="form-control" onkeyup="calculateGrandTotal()">
                                         </td>
                                     </tr>
                                     <tr>
@@ -175,8 +229,8 @@
                                         <td></td>
                                         <td>Grand Total Cost </td>
                                         <td>
-                                            <span id="grand_total_span"></span>
-                                            <input type="hidden" name="grand_total" class="form-control grand_total" id="grand_total">
+                                            <span id="grand_total_span">@if($billing->grand_total != null){{$billing->grand_total}} @else @endif</span>
+                                            <input type="hidden" @if($billing->grand_total != null) value="{{$billing->grand_total}}" @else value="0" @endif name="grand_total" class="form-control grand_total" id="grand_total">
                                         </td>
                                     </tr>
                                 </tfoot>
@@ -195,7 +249,7 @@
                             Self copy
                         </button>
                         <button type="submit" name="save" value="save" class="btn btn-success" >
-                            Save
+                             @if(isset($billing)) Update @else Save @endif
                         </button>
                         <!--<button class="btn btn-primary mt-2" type="button" onclick="printDiv('printableArea')">Preview</button>-->
                     </div>

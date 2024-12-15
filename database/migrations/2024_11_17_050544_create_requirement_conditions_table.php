@@ -14,10 +14,10 @@ return new class extends Migration
         Schema::create('requirement_conditions', function (Blueprint $table) {
             $table->id();
             $table->integer('product_id');
-            $table->integer('warehouse_id_one');
-            $table->integer('warehouse_id_two');
-            $table->integer('warehouse_id_three');
-            $table->integer('warehouse_id_four');
+            $table->integer('warehouse_id_one')->nullable();
+            $table->integer('warehouse_id_two')->nullable();
+            $table->integer('warehouse_id_three')->nullable();
+            $table->integer('warehouse_id_four')->nullable();
             $table->integer('quantity');
             $table->timestamps();
         });
