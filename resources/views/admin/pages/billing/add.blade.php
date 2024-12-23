@@ -50,14 +50,14 @@
                         </div>  
                         <div class="col-md-3">
                             <div class="form-floating form-floating-outline mb-4">
-                                <input type="text"  value="{{ isset($room) ? $room->name : '' }}" required name="courier_to_kolkata" class="form-control" id="basic-default-name">
+                                <input type="text"  value="{{ isset($room) ? $room->name : '' }}" name="courier_to_kolkata" onkeyup="getCourier(this.value)" class="form-control" id="basic-default-name">
                               
                                 <label for="basic-default-name">Courier To Kolkata</label>
                             </div>
                         </div>  
                         <div class="col-md-3">
                             <div class="form-floating form-floating-outline mb-4">
-                                <input type="text" value="{{ isset($room) ? $room->name : '' }}" name="courier" class="form-control" id="basic-default-name">
+                                <input type="text" value="{{ isset($room) ? $room->name : '' }}" readonly name="courier" class="form-control courier" id="basic-default-name">
                               
                                 <label for="basic-default-name">Courier</label>
                             </div>
@@ -98,7 +98,7 @@
                                 </thead>
                                 <tbody class="table_body_row">
                                     <tr>
-                                        <td style="width: 20%;">
+                                        <td style="width: 10%;">
                                             <select name="warehouse[]" id="warehouse" class="form-control warehouse">
                                               
                                                 @foreach ($warehouse as $item)
@@ -121,7 +121,7 @@
                                             <input type="number" name="quantity[]" class="form-control quantity-input" onkeyup="updateTotal(this)" >
                                             <span style="color: red" class="product-quantity-error"></span>
                                         </td>
-                                        <td><input type="text" name="price[]" class="form-control price-input" value="0" onkeyup="updateTotal(this)" ></td>
+                                        <td style="width: 20%;"><input type="text" name="price[]" class="form-control price-input" value="0" onkeyup="updateTotal(this)" ></td>
                                         <td><input type="text" name="total[]" class="form-control total-input" ></td>
                                         <td>
                                             <button type="button" onclick="add_more_row()" class="btn btn-info waves-effect waves-light">
@@ -301,6 +301,14 @@ function printDiv(divName) {
     };
 }
 
+function getCourier(value) {
+    if (value) {
+        var grand_total = $('.grand_total').val();
+
+        $('.courier').val(parseFloat(grand_total) - parseFloat(value));
+    }
+}
+
 
     // Add more row functionality
     function add_more_row() {
@@ -318,7 +326,7 @@ function printDiv(divName) {
 
     var newRow = `
         <tr>
-            <td style="width: 20%;">
+            <td style="width: 10%;">
                 <select name="warehouse[]" id="warehouse" class="form-control warehouse">
                     <option value="">Select Location</option>
                     ${warehouseOptions}
@@ -336,7 +344,7 @@ function printDiv(divName) {
             <td><input type="number" name="quantity[]" class="form-control quantity-input"  onkeyup="updateTotal(this)">
                  <span style="color: red" class="product-quantity-error"></span>
             </td>
-            <td><input type="number" name="price[]" class="form-control price-input"  onkeyup="updateTotal(this)"></td>
+            <td style="width: 20%;"><input type="number" name="price[]" class="form-control price-input"  onkeyup="updateTotal(this)"></td>
             <td><input type="number" name="total[]" class="form-control total-input" readonly></td>
             <td>
                 <button type="button" class="btn btn-danger waves-effect waves-light remove-row"><i class="fa-solid fa-trash"></i></button>
